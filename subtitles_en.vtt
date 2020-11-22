@@ -1,0 +1,14 @@
+WEBVTT
+
+1
+00:00:01.000 --> 00:00:03.000
+The folder structure is simple and self explanatory.
+
+2
+00:03.000 --> 00:04.000
+We will start by structuring the page with HTML and later style it with CSS.
+
+3
+00:04.000 --> 00:09.000
+Index.html contains basic markup to which I will 
+add UI elements dynamically using JavaScript.

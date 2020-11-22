@@ -1,0 +1,1187 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+
+    <title>Portfolio - Behind The Scenes</title>
+
+    <!-- Bootstrap core CSS -->
+    <link
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+
+    <!-- Custom fonts for this template -->
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <!-- Custom styles for this template -->
+    <link href="/css/clean-blog.min.css" rel="stylesheet" />
+    <link href="/css/prism-atom-dark.min.css" rel="stylesheet" />
+    <link href="/css/content.min.css" rel="stylesheet" />
+  </head>
+
+  <body>
+    <!-- Page Header -->
+    <header
+      class="masthead"
+      style="background-image: url('img/online-portfolio-featured-image.jpg')"
+    >
+      <div class="overlay"></div>
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-md-10 mx-auto">
+            <div class="site-heading">
+              <h1>Creating Your Portfolio</h1>
+              <span class="subheading"
+                >Creating Simple Web Portfolio using simple HTML, JavaScript,
+                and CSS and publish it on Github Pages.
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+      <article>
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-8 col-md-10 mx-auto">
+              <h2 class="section-heading" style="margin-top: 20px">
+                Portfolio Creation
+              </h2>
+              <p>
+                In this post, I will guide you though the process of quickly
+                creating your portfolio and set it up on Github Pages. This is a
+                good start if you are at the point where you have some projects
+                to show (on Github or somewhere else) but you don’t have a
+                personal portfolio website to show them on.
+              </p>
+              <h3 class="section-subheading">Video Tutorial</h3>
+              <p>
+                First up, as usual, if you'd prefer to see this tutorial in
+                video form, feel free to check it out below.
+              </p>
+              <video controls autoplay muted>
+                <source src="/vid/portfolio.mp4" type="video/mp4" />
+                <track kind="subtitles" src="subtitles_en.vtt" srclang="en" />
+              </video>
+
+              <h2 class="section-subheading">Source code</h2>
+              <p>
+                I recommend cloning the repository or simply viewing the source
+                code while doing this tutorial.
+              </p>
+              <a href="https://github.com/harpreetk99/harpreetk99.github.io"
+                ><img
+                  src="https://github-link-card.s3.ap-northeast-1.amazonaws.com/harpreetk99/harpreetk99.github.io.png"
+                  width="100%"
+              /></a>
+
+              <h3 class="section-subheading">Modify the code</h3>
+              <p>
+                Make sure that you have Visual Studio Code installed. If you
+                haven’t installed this yet then no worries, the steps are fairly
+                simple and the process shouldn’t take too long. We will need to
+                add the Live Server extension, which does not require any setup
+                and is free to use. This extension will allow us to see the
+                changes we make to the website in real-time.Now we can begin
+                making our portfolio.
+              </p>
+              <h4 class="section-step">Decisions to Make</h4>
+              <p>
+                Alright, there are many decisions you should make before
+                starting. For example, how should page items be stored? Should
+                they be stored in their own folder or just as .md file? Where do
+                you store images? And a lot more.
+              </p>
+              <p>
+                But since this project’s scope is not very large, I’m going to
+                go with a very simple file tree. I'm choosing not to store items
+                in JSON objects. Other resources (like images) can be stored in
+                /imgs/.
+              </p>
+              <p>
+                These decisions were made to make file reading and writing
+                simpler for this specific scenario, but you can always change
+                them to whatever is better suited for your project.
+              </p>
+              <h5 class="section-title">Folder structure</h5>
+              <pre><code class="language-css">|-- app
+|---- img
+|---- pages
+|---- data
+|---- js
+|---- pages
+|---- css
+|--- index.html
+</code></pre>
+              <p>
+                Let’s start from the top (you may now clone the boilerplate to
+                follow the structure and the code in detail as we go through
+                them):
+              </p>
+              <p>app/img Contains the image files.</p>
+              <p>
+                app/pages Contains the html templates. The structure under pages
+                defines the url structure of our website including the nested
+                routes, so pages/products will result in
+                www.[your-domain].com/products and pages/products/latest will
+                result in www.[your-domain].com/products/latest
+              </p>
+              <p>
+                app/css Contains the CSS files. The structure under this must be
+                identical to the folder structure of the html templates but the
+                existence of the styles are not required if a certain page does
+                not have any styles.
+              </p>
+              <p>app/scripts Contains the javascript files.</p>
+              <p>
+                app/data contains the data object you wish to pass to the html
+                template.
+              </p>
+
+              <h4 class="section-step">Structuring a page of content</h4>
+              <p>
+                Structuring a page of content ready for laying it out using CSS
+                is first step to master. We take the content for the homepage of
+                portfolio website and add structural elements to it so it can
+                have a page layout applied to it.
+              </p>
+
+              <p>
+                The following screenshot shows an example of what the homepage
+                might look like after being marked up.
+              </p>
+
+              <img
+                src="/img/markup-structure.gif"
+                alt="Markup of Portfolio Website"
+                width="100%"
+              />
+              <span class="caption text-muted">Homepage after marked up</span>
+              <p>
+                Our example seen above is represented by the following code (you
+                can also find the example in my
+                <span
+                  ><a
+                    href="https://github.com/harpreetk99/harpreetk99.github.io"
+                    >GitHub repository</a
+                  ></span
+                >). I'd like you to look at the example above, and then look
+                over the listing below to see what parts make up what section of
+                the visual.
+              </p>
+
+              <pre><code class="language-html">&lt;head&gt;
+&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot; /&gt;
+&lt;link rel=&quot;stylesheet&quot; href=&quot;css/index.css&quot; /&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;header&gt;&lt;/header&gt;
+  &lt;article id=&quot;pages&quot; class=&quot;container&quot;&gt;&lt;/article&gt;
+  &lt;footer&gt;&lt;/footer&gt;
+  &lt;script src=&quot;js/index.js&quot; type=&quot;module&quot;&gt;&lt;/script&gt;
+&lt;/body&gt;
+</code></pre>
+              <span class="caption text-muted">index.html</span>
+              <h5 class="section-title">Importing Jquery and Bootstrap</h5>
+              <pre><code class="language-js">import &quot;https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.js&quot;
+
+import &quot;https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.5.2/umd/popper.min.js&quot;;
+
+import &quot;https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js&quot;;</code></pre>
+
+              <span class="caption text-muted">index.js</span>
+
+              <h5 class="section-title">Create Page Structure</h5>
+              <p>
+                We will be creating the page structure using Jquery append()
+                method to insert the content to end of matched elements. In
+                addition to that we will be building UI elements from data
+                stored in JSON data. JSON data can be described as javascript
+                array, and each element of that array is an object:
+              </p>
+              <pre><code class="language-js">export default [
+  { title: "index"},
+  { title: "Projects"},
+  { title: "Contact"},
+];
+</code></pre>
+              <span class="caption text-muted">pages/index.js</span>
+              <p>
+                We will be using ES6 classes and a plain template literal for
+                producing the markup. We will create Header, Section, Article
+                and Footer classes which will inherit from Page class.
+              </p>
+
+              <pre><code class="language-js">import aPages from "../pages/index.js";  
+class Page {
+   constructor() {
+    this.sName = "Harpreet Kaur";
+   }
+   render() {}
+}
+
+class Header extends Page {
+  render() {}
+}
+
+class Section extends Page {
+  constructor() {}
+  render() {}
+}
+
+class Article extends Page {
+  render() {
+    for (let n = 0; n &lt; aPages.length; n++) {
+      $(&quot;article#pages&quot;).append(`&lt;section id=&quot;${aPages[n].title}&quot;&gt;&lt;/section&gt;`);
+      new Section(aPages[n]).render();
+    }
+  }
+}
+
+class Footer extends Page {
+  render() {}
+}
+</code></pre>
+              <span class="caption text-muted">index.js</span>
+
+              <p>
+                Alright, so if you look at the architectural code below, you’ll
+                notice that the Header, Article and Footer component is
+                encapsulated by the Portfolio layout. This means that when we
+                load the Portfolio layout, it will also load the all three
+                components.
+              </p>
+              <pre><code class="language-js">class Portfolio extends Page {
+constructor() {
+  super();
+  this.header = new Header();
+  this.article = new Article();
+  this.footer = new Footer();
+}
+render() {
+  this.header.render();
+  this.article.render();
+  this.footer.render();
+}
+}
+
+$(document).ready(() => {
+  new Portfolio().render();
+});
+</code></pre>
+              <span class="caption text-muted">index.js</span>
+              <h5 class="section-title">Create Header</h5>
+
+              <p>
+                We will import pages/index.js and take data from the array to
+                build Bootstrap Navbar Links.
+              </p>
+              <p>
+                Check out the Bootstrap documentation for Bootstrap’s responsive
+                navigation header.
+              </p>
+
+              <blockquote class="embedly-card" style="margin-bottom: 30px">
+                <h4>
+                  <a
+                    href="https://getbootstrap.com/docs/4.1/components/navbar/"
+                    target="_blank"
+                    >Navbar</a
+                  >
+                </h4>
+                <p>
+                  Documentation and examples for Bootstrap's powerful,
+                  responsive navigation header, the navbar. Includes support for
+                  branding, navigation, and more, including support for our
+                  collapse plugin.
+                </p>
+              </blockquote>
+              <script
+                async
+                src="//cdn.embedly.com/widgets/platform.js"
+                charset="UTF-8"
+              ></script>
+              <h5 class="section-title">Boostrap Navigation Bar</h5>
+              <pre><code class="language-js">import aPages from &quot;../pages/index.js&quot;;
+
+class Header extends Page {
+render() {
+  let sMenu = &quot;&quot;;
+  for (let n = 0; n &lt; aPages.length; n++) {
+    const sMenuItem = aPages[n].title;
+    if (sMenuItem != &quot;index&quot;) {
+      sMenu += `&lt;li  class=&quot;nav-item&quot;&gt;&lt;a class=&quot;nav-link js-scroll-trigger&quot; href=&quot;#${sMenuItem}&quot;&gt;${sMenuItem}&lt;/a&gt;&lt;/li&gt;`;
+    }
+  }
+
+  $(&quot;header&quot;).html(`
+  &lt;nav class=&quot;navbar navbar-expand-lg navbar-dark bg-dark fixed-top&quot; id=&quot;mainNav&quot;&gt;
+    &lt;div class=&quot;container&quot;&gt;
+      &lt;a class=&quot;navbar-brand js-scroll-trigger&quot; href=&quot;#page-top&quot;&gt;${this.sName}&lt;/a&gt;
+      &lt;button class=&quot;navbar-toggler&quot; type=&quot;button&quot; data-toggle=&quot;collapse&quot; data-target=&quot;#navbarResponsive&quot; aria-controls=&quot;navbarResponsive&quot; aria-expanded=&quot;false&quot; aria-label=&quot;Toggle navigation&quot;&gt;
+        &lt;span class=&quot;navbar-toggler-icon&quot;&gt;&lt;/span&gt;
+      &lt;/button&gt;
+      &lt;div class=&quot;collapse navbar-collapse&quot; id=&quot;navbarResponsive&quot;&gt;
+        &lt;ul class=&quot;navbar-nav ml-auto&quot;&gt;
+${sMenu}
+        &lt;/ul&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+ &lt;/nav&gt;
+    `);
+  }
+}
+</code></pre>
+              <span class="caption text-muted">index.js</span>
+              <h5 class="section-title">About Section</h5>
+              <pre><code class="language-js">export default [
+{
+  intro: "Hi, I'm",
+  name: "Harpreet Kaur.",
+  title: "I'm a ",
+  role: "Full Stack Developer.",
+  subTitle:
+    "I'm currently focused on using React and Gatsby to create extremely fast and responsive websites.",
+},
+];
+</code></pre>
+              <span class="caption text-muted">data/about.js</span>
+              <p>
+                We will import data/about.js and take data from the JavaScript
+                array to build About Section below the header.
+              </p>
+              <pre><code class="language-js">import aboutData from &quot;../data/about.js&quot;;
+
+class Header extends Page {
+  render() {
+
+    //Bootstrap Navigation
+    ...
+
+aboutData.map((data) =&gt; {
+$(&quot;header&quot;).html(`
+&lt;div class=&quot;header-container&quot;&gt;
+ &lt;h5 class=&quot;headerIntro&quot;&gt;${data.intro}&lt;/h5&gt;
+ &lt;h1 class=&quot;headerName&quot;&gt;${data.name}&lt;/h1&gt;
+ &lt;h3&gt;&lt;span class=&quot;headerText&quot;&gt;${data.title}&lt;/span&gt;&lt;span class=&quot;headerRole&quot;&gt;${data.role}&lt;/span&gt;&lt;/h3&gt;
+ 
+ &lt;p class=&quot;headerSubTitle&quot;&gt;${data.subTitle}&lt;/p&gt;
+  
+  &lt;div class=&quot;sLinks&quot;&gt;
+  &lt;a href=&quot;https://github.com/harpreetk99&quot; target=&quot;_blank&quot;&gt;
+    Github
+   &lt;/a&gt;
+  &lt;a href=&quot;#&quot; target=&quot;_blank&quot; onclick=&quot;return false;&quot;&gt;
+    Twitter
+  &lt;/a&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+}        
+</code></pre>
+              <span class="caption text-muted">index.js</span>
+              <h5 class="section-title">Create Projects Section</h5>
+              <pre><code class="language-js">export default [
+{
+  title: "Personal Finance",
+  classes: "project",
+  description:
+    "My first Flutter Dart application. I wanted to learn Flutter so I created this Personal Finance app.",
+  techList: ["Flutter", "Dart", "Cross Platform"],
+  img: "personal-finance.png",
+  codeLink: "",
+  siteLink: "",
+},
+{
+  title: "UX Journey Blogs",
+  classes: "project",
+  description:
+    "Designed and Developed website for showcasing Design-Inclusive User Research projects.",
+  techList: ["Gatsby", "Netlify", "Emotion", "GraphQL"],
+  img: "ux-blog.png",
+  codeLink: "",
+  siteLink: "",
+},
+...
+]
+</code></pre>
+              <span class="caption text-muted">data/projects.js</span>
+              <p>
+                We will import JSON array from data/projects.js. Now that our
+                state has an array of data to work with, we can loop over it
+                using for loop by modifying our render() and pass object of
+                array as a parameter to Project class constructor. We will call
+                render method of Project class to render each project. Each
+                iteration will build new Project markup :
+              </p>
+              <pre><code class="language-js">import projectsData from &quot;../data/projects.js&quot;;
+
+class Section extends Page {
+constructor(oOptions) {
+  super();
+  this.oOptions = oOptions;
+}
+
+render() {
+  if (this.oOptions.title == &quot;Projects&quot;) {
+    $(`#${this.oOptions.title}`).append(`&lt;div class=&quot;projects-wrapper&quot;&gt;
+    &lt;h1 class=&quot;projectPageTitle&quot;&gt;Projects.&lt;/h1&gt;
+    &lt;div class=&quot;projects-container&quot;&gt;&lt;/div&gt;
+    &lt;/div&gt;`);
+    for (let n = 0; n &lt; projectsData.length; n++) {
+      $(&quot;.projects-container&quot;).append(
+        `&lt;div id=&quot;${projectsData[n].title
+          .replace(/s+/g, &quot;-&quot;)
+          .toLowerCase()}&quot;&gt;&lt;/div&gt;`
+      );
+      new Project(projectsData[n]).render();
+    }
+  }
+}
+}
+</code></pre>
+
+              <span class="caption text-muted">index.js</span>
+              <p>
+                Create Project class and add a constructor that takes in the
+                object. Save the object in internal variables (this scope) in
+                the constructor function. When we are finished creating the
+                markup, we simply use the jQuery .append() method to insert our
+                markup into the DOM, using the ID of a specific DIV element.
+              </p>
+              <p>
+                Check out Bootstrap's Card used to compose our Project markup.
+              </p>
+              <blockquote class="embedly-card">
+                <h4>
+                  <a
+                    href="https://getbootstrap.com/docs/4.3/components/card/#horizontal"
+                    >Cards</a
+                  >
+                </h4>
+                <p>
+                  Bootstrap's cards provide a flexible and extensible content
+                  container with multiple variants and options. A card is a
+                  flexible and extensible content container. It includes options
+                  for headers and footers, a wide variety of content, contextual
+                  background colors, and powerful display options. If you're
+                  familiar with Bootstrap 3, cards replace our old panels,
+                  wells, and thumbnails.
+                </p>
+              </blockquote>
+              <script
+                async
+                src="//cdn.embedly.com/widgets/platform.js"
+                charset="UTF-8"
+              ></script>
+              <pre><code class="language-js">class Project extends Page {
+constructor(pOptions) {
+super();
+this.pOptions = pOptions;
+}
+
+render() {
+const className = this.pOptions.title.replace(/s+/g, &quot;-&quot;).toLowerCase();
+
+const codeLink = &quot;#&quot;;
+
+if (this.pOptions.codeLink) {
+  codeLink = this.pOptions.codeLink;
+}
+
+const techList = this.pOptions.techList.join(&quot;, &quot;);
+
+$(`#${className}`).append(
+`&lt;div class=&quot;card mb-5&quot; &gt;
+  &lt;div class=&quot;card-row&quot;&gt;
+    &lt;div class=&quot;card-col-1&quot;&gt; &lt;img src=&quot;/img/${this.pOptions.img}&quot; alt=&quot;${this.pOptions.title}&quot;&gt;&lt;/div&gt;
+    &lt;div class=&quot;card-col-2&quot;&gt;
+      &lt;div class=&quot;card-body&quot;&gt;
+        &lt;h5 class=&quot;card-title&quot;&gt;${this.pOptions.title}&lt;/h5&gt;
+        &lt;p class=&quot;card-text&quot;&gt;${this.pOptions.description}&lt;/p&gt;
+        &lt;p class=&quot;card-text&quot;&gt;&lt;small class=&quot;text-muted&quot;&gt;${techList}&lt;/small&gt;&lt;/p&gt;
+        &lt;a href=&quot;${codeLink}&quot; class=&quot;btn btn-primary&quot;&gt;View Code&lt;/a&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;`
+    );
+  }
+}</code></pre>
+              <span class="caption text-muted">index.js</span>
+
+              <h5 class="section-title">Create Contact Form</h5>
+              <p>
+                We will pass the id of parent element as a parameter to
+                ContactForm class and render the Contact Form.
+              </p>
+              <pre><code class="language-js">class Section extends Page {
+  //constructor
+
+  ...
+
+render() {
+  if (this.oOptions.title == &quot;Contact&quot;) {
+    new ContactForm(this.oOptions.title).render();
+  }
+ }
+}</code></pre>
+              <span class="caption text-muted">index.js</span>
+              <p>
+                We will then create Contact Form class that which will append
+                the markup of Contact Form to it's parent element.
+              </p>
+
+              <pre><code class="language-js">class ContactForm extends Page {
+constructor(cOptions) {
+  super();
+  this.cOptions = cOptions;
+}
+render() {
+  $(`#${this.cOptions}`).append(`
+&lt;div class=&quot;contact-form-wrapper&quot;&gt;
+&lt;h1 class=&quot;contact-form-title&quot;&gt;
+   Let's connect.
+&lt;/h1&gt;
+&lt;p class=&quot;contact-line&quot;&gt;If you want to know more about me or my work, or if you would just like to say hello, send me a message. I'd love to hear from you.&lt;/p&gt;
+&lt;form
+   id=&quot;contact-form&quot; class=&quot;contact-form&quot;
+   action=&quot;&quot;
+   method=&quot;POST&quot;
+   &gt;
+   &lt;div class=wrap-input  validate-input&quot; data-validate = &quot;Valid email is required: ex@abc.xyz&quot;&gt;
+      &lt;label class=&quot;label-input&quot; for=&quot;email&quot;&gt;
+      &lt;img src=&quot;img/icons/symbol-01.png&quot; alt=&quot;SYMBOL-MAIL&quot;&gt;
+      &lt;/label&gt;
+      &lt;input class=&quot;input&quot; type=&quot;email&quot; name=&quot;_replyto&quot; placeholder=&quot;Your Email Address&quot; required&gt;
+      &lt;span class=&quot;focus-input&quot;&gt;&lt;/span&gt;
+   &lt;/div&gt;
+   &lt;div class=&quot;wrap-input validate-input&quot; data-validate = &quot;Message is required&quot;&gt;
+      &lt;textarea class=&quot;input&quot; name=&quot;message&quot; placeholder=&quot;Your Message&quot; required&gt;&lt;/textarea&gt;
+      &lt;span class=&quot;focus-input&quot;&gt;&lt;/span&gt;
+   &lt;/div&gt;
+   &lt;!-- your other form fields go here --&gt;
+   &lt;div class=&quot;container-contact-form-btn&quot;&gt;
+      &lt;button type=&quot;submit&quot; class=&quot;btn btn-primary btn-lg&quot;&quot;&gt;Send Message&lt;/button&gt;
+   &lt;/div&gt;
+&lt;/form&gt;
+&lt;/div&gt;
+`);
+}
+}              
+</code></pre>
+              <span class="caption text-muted">index.js</span>
+              <h4 class="section-step">Styling HTML</h4>
+              <p>
+                Adding the CSS We may as well get the CSS over and done with so
+                we have something pretty to look at - let's make a new file
+                within /css named index.css.
+              </p>
+
+              <h5 class="section-title">Incorporating bootstrap styles</h5>
+              <p>Next step is to import Bootstrap in our css/index.css file:</p>
+              <pre><code class="language-css">@import url("https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css");
+
+@import url("https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css");
+</code></pre>
+              <span class="caption text-muted">css/index.css</span>
+              <h5 class="section-title">Adding Fonts</h5>
+              <pre><code class="language-css">@import url("https://fonts.googleapis.com/css2?family=Roboto+Slab&display=swap");
+
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans&display=swap");
+</code></pre>
+              <span class="caption text-muted">css/index.css</span>
+              <h5 class="section-title">Adding Custom CSS</h5>
+
+              <p>
+                As the CSS isn't the main focus of this tutorial, I'm not going
+                to go into detail on what those styles do - plus, most are quite
+                self explanatory 😁
+              </p>
+              <h5 class="section-title">Styling Header</h5>
+              <pre><code class="language-css">/*==================================================================
+[ Header ]*/
+header {
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  background-color: #007bff !important;
+
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+.headerIntro {
+  font-size: 20px;
+  color: whitesmoke;
+  max-width: 480px;
+  margin-bottom: 10px;
+}
+
+.headerSubTitle {
+  font-size: 24px;
+  color: whitesmoke;
+  line-height: normal;
+  max-width: 480px;
+  margin-bottom: 10px;
+}
+
+.headerName {
+  margin-bottom: 5px;
+  max-width: 900px;
+  color: #fff;
+}
+
+.headerRole {
+  color: #fed766;
+  line-height: 44px;
+}
+
+.headerText {
+  max-width: 900px;
+  color: whitesmoke;
+  margin-bottom: 15px;
+}
+
+.header-container {
+  padding-top: 90px;
+  padding-bottom: 90px;
+  margin: 0 auto;
+  width: 100%;
+  max-width: 1100px;
+}
+
+.container {
+  max-width: 1140px;
+}
+
+.sLinks svg {
+  color: #fff;
+  width: 35px;
+  margin-right: 15px;
+  margin-top: 15px;
+}
+
+/*==================================================================
+[ Responsive header ]*/
+
+@media screen and (min-width: 1024px) {
+  header {
+    padding-left: 100px;
+    padding-right: 100px;
+  }
+}
+
+@media screen and (max-width: 1023px) {
+  .headerIntro {
+    font-size: 18px;
+  }
+  .headerSubTitle {
+    font-size: 20px;
+  }
+  .headerName {
+    max-width: 700px;
+  }
+  .headerRole {
+    font-size: 32px;
+  }
+  .headerText {
+    font-size: 30px;
+  }
+  .header-container {
+    padding-top: 70px;
+    padding-bottom: 70px;
+    padding-left: 20px;
+  }
+}
+
+@media screen and (max-width: 640px) {
+  .headerName {
+    max-width: 500px;
+  }
+  .header-container {
+    padding-top: 60px;
+    padding-bottom: 60px;
+  }
+}
+
+/*==================================================================
+[ Nav ]*/
+
+.navbar-dark .navbar-toggler {
+  border: none;
+}
+
+.navbar .nav-item {
+  margin: 0 auto;
+}
+
+.navbar .nav-link {
+  font-size: 1.2em;
+  margin: 0 10px;
+}
+
+@media (max-width: 991.98px) {
+  .navbar-expand-lg > .container:nth-child(1) {
+    padding-right: 20px;
+    padding-left: 20px;
+  }
+}
+</code></pre>
+              <span class="caption text-muted">css/index.css</span>
+              <p>Lets also take a look at our Header with styling involved.</p>
+              <img
+                class="img-fluid"
+                alt="Portfolio header"
+                src="img/portfolio-header.PNG"
+              />
+              <span class="caption text-muted">Styled Header</span>
+              <h5 class="section-title">Styling Projects</h5>
+              <pre><code class="language-css">/*==================================================================
+[ Projects ]*/
+
+.projects-wrapper {
+  overflow: hidden;
+  padding: 130px 20px 0 20px;
+  max-width: 1000px;
+}
+
+.projectPageTitle {
+  margin-bottom: 38px;
+}
+
+.card-title {
+  font-size: 1.4rem;
+}
+
+.card-body {
+  font-size: 1.1rem;
+}
+
+.card-row {
+  display: flex;
+  flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+}
+
+.card-col-1 {
+  flex: 2;
+}
+
+.card-col-1 img {
+  width: 100%;
+}
+
+.card-col-2 {
+  flex: 3;
+}
+
+/*==================================================================
+[ Responsive Projects ]*/
+
+@media screen and (max-width: 886px) {
+  .card-row {
+    -ms-flex-direction: column;
+    flex-direction: column;
+  }
+
+  .card-col-1 {
+    flex: auto;
+  }
+
+  .card-col-2 {
+    flex: auto;
+  }
+}
+</code></pre>
+              <span class="caption text-muted">css/index.css</span>
+              <p>
+                Lets also take a look at our Projects with styling involved.
+              </p>
+              <img
+                class="img-fluid"
+                alt="Portfolio projects"
+                src="img/portfolio-projects.PNG"
+              />
+              <span class="caption text-muted">Styled Projects</span>
+              <h5 class="section-title">Styling Contact Form</h5>
+              <pre><code class="language-css">/*==================================================================
+[ Form ]*/
+
+.contact-form-wrapper {
+  overflow: hidden;
+  padding: 130px 20px;
+  max-width: 1000px;
+}
+
+.contact-form {
+  width: 100%;
+}
+
+.contact-form-title {
+  display: block;
+  color: #333333;
+  line-height: 1.2;
+}
+
+.contact-line {
+  margin: 20px 0 30px 0;
+  line-height: 1.5;
+  font-size: 18px;
+}
+
+/*------------------------------------------------------------------
+[ Input ]*/
+
+.wrap-input {
+  width: 100%;
+  position: relative;
+  background-color: #fff;
+  border: 1px solid #dbdbdb;
+  border-radius: 4px;
+  margin-bottom: 10px;
+}
+
+/*---------------------------------------------*/
+.label-input {
+  width: 22px;
+  height: 100%;
+  position: absolute;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  align-items: center;
+  top: 0;
+  left: 27px;
+}
+
+.label-input img {
+  max-width: 100%;
+}
+
+/*---------------------------------------------*/
+.input {
+  display: block;
+  width: 100%;
+  background: transparent;
+  font-family: "Open Sans", sans-serif;
+  font-size: 15px;
+  color: #333333;
+  line-height: 1.2;
+}
+
+input.input {
+  height: 70px;
+  padding: 0 20px 0 62px;
+}
+
+textarea.input {
+  min-height: 199px;
+  padding: 25px 20px 15px 30px;
+}
+
+/*------------------------------------------------------------------
+[ Focus Input ]*/
+
+.focus-input {
+  position: absolute;
+  display: block;
+  width: calc(100% + 2px);
+  height: calc(100% + 2px);
+  top: -1px;
+  left: -1px;
+  pointer-events: none;
+  border: 1px solid #4272d7;
+  border-radius: 4px;
+
+  visibility: hidden;
+  opacity: 0;
+
+  -webkit-transition: all 0.4s;
+  -o-transition: all 0.4s;
+  -moz-transition: all 0.4s;
+  transition: all 0.4s;
+
+  -webkit-transform: scaleX(1.1) scaleY(1.3);
+  -moz-transform: scaleX(1.1) scaleY(1.3);
+  -ms-transform: scaleX(1.1) scaleY(1.3);
+  -o-transform: scaleX(1.1) scaleY(1.3);
+  transform: scaleX(1.1) scaleY(1.3);
+}
+
+.input:focus + .focus-input {
+  visibility: visible;
+  opacity: 1;
+
+  -webkit-transform: scale(1);
+  -moz-transform: scale(1);
+  -ms-transform: scale(1);
+  -o-transform: scale(1);
+  transform: scale(1);
+}
+
+.eff-focus-selection {
+  visibility: visible;
+  opacity: 1;
+
+  -webkit-transform: scale(1);
+  -moz-transform: scale(1);
+  -ms-transform: scale(1);
+  -o-transform: scale(1);
+  transform: scale(1);
+}
+
+/*------------------------------------------------------------------
+[ Button ]*/
+.container-contact-form-btn {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  flex-wrap: wrap;
+  padding-top: 20px;
+}
+
+/*------------------------------------------------------------------
+[ Responsive ]*/
+
+@media (max-width: 576px) {
+  .navbar-collapse.collapse {
+    display: none !important;
+  }
+}
+
+</code></pre>
+              <span class="caption text-muted">css/index.css</span>
+              <p>
+                Lets also take a look at our Contact Form and Footer with
+                styling involved.
+              </p>
+              <img
+                class="img-fluid"
+                alt="Portfolio Contact Form and Footer"
+                src="img/portfolio-form.PNG"
+              />
+              <span class="caption text-muted"
+                >Styled Contact Form and Footer</span
+              >
+              <h5 class="section-title">Styling Footer</h5>
+              <pre><code class="language-css">/*------------------------------------------------------------------
+[ Footer ]*/
+
+footer {
+  padding-bottom: 20px;
+}
+
+footer hr {
+  border-top-color: #bbb;
+  opacity: 0.5;
+  margin-bottom: 20px;
+}
+
+footer p {
+  font-family: "Open Sans", sans-serif;
+  text-align: center;
+  margin: 0;
+}        
+</code></pre>
+              <span class="caption text-muted">css/index.css</span>
+
+              <h2 class="section-heading">Hosting the Portfolio</h2>
+
+              <p>
+                Now that our project is finished we can host it on GitHub Pages.
+                If you do not have a GitHub account, it’s free to create one.
+                GitHub offers an option to host your portfolio free of charge
+                while still being accessible to a large audience.
+              </p>
+              <a
+                href="https://github.com/harpreetk99/harpreetk99.github.io"
+                target="_blank"
+              >
+                <img
+                  class="img-fluid"
+                  src="img/github-repository.PNG"
+                  alt="Github Repository"
+                />
+              </a>
+              <span class="caption text-muted"
+                >Github Repository of Portfolio Project</span
+              >
+              <h3 class="section-subheading">
+                Steps to host your portfolio on Github
+              </h3>
+              <p>
+                This section will take you through the steps to publish your
+                website on Github Pages. Once the account is created you’ll want
+                to go to the profile page. Next, select “Repositories” and
+                choose “Create a New Repository”. To use GitHub Pages you need
+                to name the project similar to the one I have shown. First,
+                input your GitHub profile name and keep the rest. Now press
+                “Create Repository”.
+              </p>
+              <pre><code class="language-css">[yourusername].github.io</code></pre>
+
+              <p>
+                You do not need to know how to use Git through the command line
+                since everything can be done through the website. Select “Upload
+                Existing File” and copy all the files from your project to the
+                website. You can copy the whole folder since the index file has
+                to be easily accessible. Once all of the files have been
+                uploaded, the portfolio is officially ready. Your portfolio is
+                published as the project name. Copy the website name we’ve used
+                above and you can preview the portfolio!
+              </p>
+
+              <h2 class="section-heading">Final Thoughts</h2>
+              <p>
+                This article has guided you through creating a beautiful and
+                practical portfolio that will make you stand out from any other
+                job applicant. You are free to use any templates you like and
+                make your portfolio unique. I hope that you enjoyed learning
+                this skill and that it helps you land your dream job! Thanks for
+                reading.
+              </p>
+
+              <p style="font-style: italics">
+                None of the links in this post are sponsored or affiliate.
+              </p>
+              <p>⭐️⭐️⭐️ That’s all folks! ⭐️⭐️⭐️</p>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- Newsletter -->
+      <section class="section-2">
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-8 col-md-10 mx-auto">
+              <div class="group-1">
+                <div class="layout-1">
+                  <h1 class="newsletter-heading">Subscribe to Newsletter</h1>
+                  <p>
+                    Discover the latest effective spa treatments, products,
+                    promotions, wellness recipes &amp; secrets to keep you
+                    looking beautiful &amp; younger!
+                  </p>
+                </div>
+              </div>
+              <div class="email-box">
+                <form
+                  id="subscription_form"
+                  method="POST"
+                  action="/thanks.html"
+                >
+                  <div class="user-box">
+                    <input
+                      type="text"
+                      id="user_name"
+                      name="user_name"
+                      class="name-box__input"
+                      autocomplete="off"
+                      required
+                    />
+                    <label>Your Name</label>
+                  </div>
+                  <div class="user-box">
+                    <input
+                      type="text"
+                      id="user_email"
+                      name="user_email"
+                      class="email-box__input"
+                      autocomplete="off"
+                      required
+                    />
+                    <label>Email Address</label>
+                  </div>
+                  <button type="submit" class="subscribe_button">
+                    <span>Subscribe</span>
+                  </button>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- <hr /> -->
+
+    <!-- Footer -->
+    <footer>
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-md-10 mx-auto">
+            <ul class="list-inline text-center">
+              <li class="list-inline-item">
+                <a href="#">
+                  <span class="fa-stack fa-lg">
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="fab fa-twitter fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li class="list-inline-item">
+                <a href="#">
+                  <span class="fa-stack fa-lg">
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="fab fa-facebook-f fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li class="list-inline-item">
+                <a href="https://github.com/harpreetk99" target="_blank">
+                  <span class="fa-stack fa-lg">
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+            </ul>
+            <p class="copyright text-muted">
+              Copyright &copy; Portfolio - Behind the Scenes 2020
+            </p>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/8.0.2/firebase.js"></script>
+    <script src="js/prism.js"></script>
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+  https://firebase.google.com/docs/web/setup#available-libraries -->
+    <script src="https://www.gstatic.com/firebasejs/8.0.2/firebase-analytics.js"></script>
+    <!-- Custom scripts for this template -->
+    <script src="js/clean-blog.min.js"></script>
+    <script src="js/firebase.js"></script>
+  </body>
+</html>
